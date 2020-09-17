@@ -1,0 +1,134 @@
+@import "./media";
+
+@mixin contact {
+    position: fixed;
+    right: 0;
+    font-size: 30px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 10px;
+    color: $secondary-color;
+    background-color: #f7f7f780;
+    backdrop-filter: blur(5px);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f7f7f7;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+main {
+    @include widthxheight(100%, 100vh);
+    .background {
+        @include widthxheight(100%, 100%);
+        background-image: url("https://img.freepik.com/free-photo/coronavirus-cells-floating-blurred-background_1048-12473.jpg?size=626&ext=jpg");
+        background-position: center;
+        background-size: cover;
+        @include flex(flex, center, center);
+        .card {
+            @include widthxheight(70%, 70%);
+            background-color: #f7f7f780;
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            @include flex(flex, space-evenly, center);
+            flex-direction: column;
+            h1 {
+                text-align: center;
+                color: $color;
+            }
+            .title {
+                text-align: center;
+                font-size: 30px;
+                color: #f7f7f7;
+                font-family: 'Courier New', Courier, monospace;
+            }
+            .flex {
+                @include flex(flex, space-evenly, center);
+                .mini-card {
+                    @include widthxheight(30%, 100%);
+                    background-color: #f7f7f7e7;
+                    padding: 10px;
+                    border-radius: 15px;
+                    border: 3px solid #ccc;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    padding: 10px;
+    width: 100%;
+    // position: absolute;
+    position: fixed;
+    bottom: 0;
+    background-color: #f7f7f75b;
+    backdrop-filter: blur(5px);
+    text-align: center;
+}
+
+header {
+    z-index: 2;
+    position: absolute;
+    top: 5px;
+    font-size: 25px;
+    right: 15px;
+    .link {
+        animation: anim 2s ease-in-out infinite alternate-reverse;
+        color: $secondary-color;
+    }
+}
+
+.contact {
+    .fa-facebook {
+        @include contact();
+        bottom: 30%;
+    }
+    .fa-twitter {
+        @include contact();
+        bottom: 20%;
+    }
+}
+
+@keyframes anim {
+    to {
+        color: $color;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    main {
+        height: 100%;
+    }
+    main .background .card {
+        padding: 30px 0px;
+        @include widthxheight(100%, 100%);
+        border-radius: 0;
+        .flex {
+            padding: 0px 10px 30px 10px;
+            .mini-card {
+                width: 100%;
+                margin: 10px;
+            }
+            flex-direction: column;
+            // display block
+        }
+    }
+}

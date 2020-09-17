@@ -1,0 +1,13 @@
+@mixin widthxheight($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin flex($display, $justifyContent, $alignItems) {
+    display: $display;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+}
+
+$color: #f3b0c4;
+$secondary-color: #625995;
